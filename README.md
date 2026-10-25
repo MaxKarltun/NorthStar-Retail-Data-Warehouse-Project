@@ -133,6 +133,6 @@ Current Status
 ⬜ Phase 8 Pending
 
 Author
-Maximiliano Moreno
+Maximiliano Karltun Moreno
 
 Master of Science in Data Engineering & Analytics
