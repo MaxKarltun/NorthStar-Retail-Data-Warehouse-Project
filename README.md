@@ -39,10 +39,10 @@ Smoke test validation
 Business questions and SQL queries
 OLTP analytical results
 Reflection on OLTP limitations
-Key Learning
+Key Learning=
 This phase demonstrated that transactional systems are optimized for recording transactions rather than supporting business analytics. Analytical questions often required multiple joins and complex SQL, making reporting difficult and less scalable for business users.
 
-
+-----------------------------------------------------
 Phase 2: Requirements & Kimball Bus Matrix ✅
 Objectives
 Identify stakeholders

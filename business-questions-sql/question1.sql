@@ -1,3 +1,16 @@
+
+/*Business Question 1 
+
+Which product categories generated the highest sales revenue? 
+
+Key Results 
+
+Apparel → $13,144,009.63 
+
+Beauty & Health → $10,309,285.95 
+
+Home & Kitchen → $7,345,884.15 */
+
 SELECT
 c.category_name,
 ROUND(SUM(oi.quantity * oi.unit_price),2) AS total_sales
