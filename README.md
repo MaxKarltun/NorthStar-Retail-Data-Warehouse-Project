@@ -35,6 +35,17 @@ The project is organized into phases. The Phase 2 requirements and Kimball bus m
 
 Phase status reflects the roadmap documented in this repository; see each phase's files for its deliverables.
 
+## Phase 1: Environment setup and OLTP source analysis
+
+Phase 1 established the DuckDB source-analysis environment, smoke-tested the loaded NorthStar data, and used SQL to explore the operational system and answer initial business questions. The analysis examined revenue by product category and customer segment, and order volume by sales channel. It also considered why an OLTP system built for day-to-day transactions is not the ideal foundation for repeated, cross-business analytical reporting.
+
+- [Phase 1 overview and validation evidence](phase01-source-analysis/README.md)
+- [Business-question SQL portfolio](business-questions-sql/)
+- [Smoke-test row-count evidence](phase01-source-analysis/validation/smoke-test-result%20count.png)
+- [Revenue by product category](phase01-source-analysis/validation/Revenue%20by%20Product%20Category.png)
+- [Orders processed by store/channel](phase01-source-analysis/validation/Orders%20Processed%20by%20Store_Channel.png)
+- [Revenue by customer segment](phase01-source-analysis/validation/Revenue%20By%20Customer%20Support.png)
+
 ## Phase 2: Requirements and dimensional model
 
 Phase 2 translates stakeholder questions into measurable requirements, defines the grain of each proposed fact table, and identifies dimensions shared across business processes.
