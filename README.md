@@ -27,7 +27,7 @@ The project is organized into phases. The Phase 2 requirements and Kimball bus m
 | 1 | Environment setup, source analysis, and OLTP business questions | Complete |
 | 2 | Business requirements, KPIs, declared grain, and Kimball bus matrix | Complete |
 | 3 | Warehouse architecture and conceptual data dictionary | Complete |
-| 4 | Star schema, ETL, SCD Type 2, and data quality | Planned |
+| 4 | Star schema, ETL, SCD Type 2, and data quality | Complete |
 | 5 | OLAP and analytical SQL portfolio | Planned |
 | 6 | Physical design and optimization | Planned |
 | 7 | Power BI semantic model | Planned |
@@ -72,6 +72,18 @@ Phase 3 describes the proposed flow from the NorthStar OLTP source through stagi
 
 The Phase 3 documents describe a **design**, not evidence that every pipeline, table, or dashboard has been implemented. `DimReturnReason` is introduced for returns, while sales channel remains an attribute of `DimStore`.
 
+## Phase 4: Star schema, ETL, and data quality
+
+Phase 4 implements the NorthStar Retail sales star schema in Snowflake. The Lab 4 resubmission reports five dimensions (`DIM_DATE`, `DIM_CUSTOMER`, `DIM_PRODUCT`, `DIM_STORE`, and `DIM_PROMOTION`) and `FACT_SALES` at one row per order line. The sales ETL resolves dimension surrogate keys, assigns unmatched promotions to a default member, and calculates extended sales, cost, and margin. Customer history is preserved with SCD Type 2, and the reported data-quality checks reconcile the loaded fact table to its source.
+
+- [Phase 4 overview and star-schema diagram](phase04-star-schema-etl/README.md)
+- [Implemented schema and grain](phase04-star-schema-etl/implementation.md)
+- [ETL and SCD Type 2 process](phase04-star-schema-etl/etl-and-scd2.md)
+- [Data-quality results](phase04-star-schema-etl/data-quality.md)
+- [Snowflake sales star-schema diagram](phase04-star-schema-etl/star-schema.svg)
+
+**Implementation scope:** Lab 4 documents the sales fact and its five dimensions. Returns is part of the earlier conceptual design, but a `FACT_RETURNS` load is not reported as implemented in Lab 4. Inventory remains future scope because inventory source data is unavailable.
+
 ## Repository map
 
 ```text
@@ -80,7 +92,8 @@ The Phase 3 documents describe a **design**, not evidence that every pipeline, t
 ├── docs/                         # Project roadmap and overview assets
 ├── phase01-source-analysis/      # Source analysis and validation evidence
 ├── phase 02-dimentional model/   # Requirements, KPIs, grain, dimensions, bus matrix
-└── phase03-architecture/         # Architecture and conceptual data dictionary
+├── phase03-architecture/         # Architecture and conceptual data dictionary
+└── phase04-star-schema-etl/      # Implemented sales schema, ETL, SCD2, validation
 ```
 
 ## Technology and methods
