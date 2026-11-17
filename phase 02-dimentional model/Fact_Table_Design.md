@@ -1,100 +1,67 @@
-Fact Table Design
-FactSales
-Declared Grain: One row per sales order line item.
+# Fact Table Design
 
-Measures:
+This design follows the Phase 2 business requirements and declared grains. Sales and Returns are current analytical processes. Inventory is a proposed future process; its source data is not available in the provided dataset.
 
-Sales Amount
-Quantity Sold
-Discount Amount
-Foreign Keys:
+## FactSales
 
-Customer Key
-Product Key
-Store Key
-Date Key
-FactReturns
-Declared Grain: One row per returned order line item.
+**Fact type:** Transaction fact
+**Declared grain:** One row per sales order line item.
 
-Measures:
+**Measures**
 
-Return Amount
-Return Quantity
-Foreign Keys:
+- `sales_amount` — sales value at the order-line grain
+- `quantity_sold` — units sold
+- `discount_amount` — discount applied to the line
+- `cost_amount` — cost associated with the sold line, when supplied by the source
 
-Customer Key
-Product Key
-Store Key
-Date Key
-FactInventory
-Declared Grain: One row per product per store per day.
+Gross profit is derived as `sales_amount - cost_amount`; profit margin is gross profit divided by sales amount. Promotion revenue is calculated by aggregating sales lines associated with each promotion. Average order value is total sales amount divided by the distinct number of orders.
 
-Measures:
+**Dimension foreign keys**
 
-Inventory On Hand
-Foreign Keys:
+- Date
+- Customer
+- Product
+- Store
+- Promotion
 
-Product Key
-Store Key
-Date Key
+## FactReturns
 
+**Fact type:** Transaction fact
+**Declared grain:** One row per returned order line item.
 
+**Measures**
 
+- `return_amount` — value of the returned line
+- `return_quantity` — units returned
 
-Fact Tables
-FactSales
-Grain: One row per sales order line item.
+**Dimension foreign keys**
 
-FactReturns
-Grain: One row per returned order line item.
+- Date
+- Customer
+- Product
+- Store
+- Promotion, inherited from the original sale line when the relationship is available
 
-FactInventory
-Grain: One row per product per store per day.
+Returns are discrete events, so each returned order line is retained for analysis and auditability. Return rates should be calculated by separately aggregating return quantities and sales quantities at the same dimensional level, then joining the aggregates. Joining raw sales lines directly to raw return lines can multiply rows and inflate measures.
 
+## FactInventory — future
 
+**Fact type:** Periodic snapshot fact
+**Declared grain:** One row per product per store per day.
 
+**Measures**
 
+- `quantity_on_hand` — inventory balance at the snapshot time
+- `reorder_point` — replenishment threshold, if available in a future source
 
-                          +------------------+
-                          |     DimDate      |
-                          +------------------+
-                                   |
-                                   |
-+------------------+      +------------------+      +------------------+
-|   DimCustomer    |------|    FactSales     |------|    DimProduct    |
-+------------------+      +------------------+      +------------------+
-                                   |
-                                   |
-                          +------------------+
-                          |    DimStore      |
-                          +------------------+
-                                   |
-                                   |
-                          +------------------+
-                          |  DimPromotion    |
-                          +------------------+
+**Dimension foreign keys**
 
+- Date
+- Product
+- Store
 
-                          +------------------+
-                          |     DimDate      |
-                          +------------------+
-                                   |
-                                   |
-+------------------+      +------------------+      +------------------+
-|   DimCustomer    |------|   FactReturns    |------|    DimProduct    |
-+------------------+      +------------------+      +------------------+
-                                   |
-                                   |
-                          +------------------+
-                          |    DimStore      |
-                          +------------------+
+Inventory on hand, stockout, and low-inventory metrics can be derived from periodic balances and reorder thresholds. Inventory turnover also requires cost-of-goods-sold and an average inventory balance over a defined period; it should not be presented as a measure sourced from the inventory snapshot alone.
 
+## Design rationale
 
-                          +------------------+
-                          |     DimDate      |
-                          +------------------+
-                                   |
-                                   |
-+------------------+      +------------------+      +------------------+
-|    DimStore      |------|  FactInventory   |------|    DimProduct    |
-+------------------+      +------------------+      +------------------+
+The grain is stated before selecting measures and dimensions so each fact row has an unambiguous meaning. Sales and Returns use transaction facts because they capture individual business events. Inventory uses a periodic snapshot because a balance is observed repeatedly over time. Conformed dimensions let analysts compare processes consistently without joining fact tables at incompatible grains.
