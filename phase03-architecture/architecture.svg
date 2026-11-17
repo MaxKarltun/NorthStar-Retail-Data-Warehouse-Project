@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="610" viewBox="0 0 1600 610" role="img" aria-labelledby="title desc">
+  <title id="title">NorthStar Retail proposed data warehouse architecture</title>
+  <desc id="desc">Data moves from the NorthStar OLTP database through DuckDB or Snowflake staging, a Python ETL process, and a Kimball dimensional warehouse to Power BI reports and dashboards.</desc>
+  <rect width="1600" height="610" rx="26" fill="#f3f6fb"/>
+  <text x="65" y="75" fill="#18324b" font-family="Arial, sans-serif" font-size="40" font-weight="700">NorthStar Retail | Proposed Warehouse Architecture</text>
+  <text x="68" y="118" fill="#5e7185" font-family="Arial, sans-serif" font-size="22">Lab 3: operational data to dimensional reporting</text>
+  <path d="M65 150H1535" stroke="#d5dfea" stroke-width="2"/>
+  <g stroke="#8ba0b5" stroke-width="6" fill="#8ba0b5">
+    <path d="M320 292H360"/><path d="M350 282L365 292L350 302Z"/>
+    <path d="M620 292H660"/><path d="M650 282L665 292L650 302Z"/>
+    <path d="M920 292H960"/><path d="M950 282L965 292L950 302Z"/>
+    <path d="M1220 292H1260"/><path d="M1250 282L1265 292L1250 302Z"/>
+  </g>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <rect x="65" y="205" width="255" height="180" rx="20" fill="#eaf2fe" stroke="#3478c8" stroke-width="3"/>
+    <text x="192" y="246" fill="#3478c8" font-size="17" font-weight="700">01 · SOURCE</text>
+    <text x="192" y="290" fill="#18324b" font-size="25" font-weight="700">NorthStar OLTP</text>
+    <text x="192" y="324" fill="#526477" font-size="19">Operational data</text>
+    <rect x="365" y="205" width="255" height="180" rx="20" fill="#e7f5f2" stroke="#13877f" stroke-width="3"/>
+    <text x="492" y="246" fill="#13877f" font-size="17" font-weight="700">02 · STAGING</text>
+    <text x="492" y="290" fill="#18324b" font-size="24" font-weight="700">DuckDB / Snowflake</text>
+    <text x="492" y="324" fill="#526477" font-size="19">Prepare source data</text>
+    <rect x="665" y="205" width="255" height="180" rx="20" fill="#fff4dc" stroke="#c68a1b" stroke-width="3"/>
+    <text x="792" y="246" fill="#a96e0d" font-size="17" font-weight="700">03 · ETL</text>
+    <text x="792" y="290" fill="#18324b" font-size="25" font-weight="700">Python process</text>
+    <text x="792" y="324" fill="#526477" font-size="19">Extract · transform · load</text>
+    <rect x="965" y="205" width="255" height="180" rx="20" fill="#eaf2fe" stroke="#3478c8" stroke-width="3"/>
+    <text x="1092" y="246" fill="#3478c8" font-size="17" font-weight="700">04 · WAREHOUSE</text>
+    <text x="1092" y="290" fill="#18324b" font-size="24" font-weight="700">Kimball star schemas</text>
+    <text x="1092" y="324" fill="#526477" font-size="19">Facts + dimensions</text>
+    <rect x="1265" y="205" width="270" height="180" rx="20" fill="#e7f5f2" stroke="#13877f" stroke-width="3"/>
+    <text x="1400" y="246" fill="#13877f" font-size="17" font-weight="700">05 · REPORTING</text>
+    <text x="1400" y="290" fill="#18324b" font-size="25" font-weight="700">Power BI</text>
+    <text x="1400" y="324" fill="#526477" font-size="19">KPIs + dashboards</text>
+  </g>
+  <rect x="65" y="440" width="1470" height="95" rx="16" fill="#ffffff" stroke="#d5dfea" stroke-width="2"/>
+  <text x="94" y="478" fill="#18324b" font-family="Arial, sans-serif" font-size="21" font-weight="700">Design scope</text>
+  <text x="94" y="510" fill="#526477" font-family="Arial, sans-serif" font-size="19">Sales and Returns are in scope. Inventory is future work; the diagram describes a proposed flow, not deployment status.</text>
+</svg>

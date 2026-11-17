@@ -26,7 +26,7 @@ The project is organized into phases. The Phase 2 requirements and Kimball bus m
 | --- | --- | --- |
 | 1 | Environment setup, source analysis, and OLTP business questions | Complete |
 | 2 | Business requirements, KPIs, declared grain, and Kimball bus matrix | Complete |
-| 3 | Warehouse architecture and source-to-target documentation | In progress |
+| 3 | Warehouse architecture and conceptual data dictionary | Complete |
 | 4 | Star schema, ETL, SCD Type 2, and data quality | Planned |
 | 5 | OLAP and analytical SQL portfolio | Planned |
 | 6 | Physical design and optimization | Planned |
@@ -50,6 +50,17 @@ Phase 2 translates stakeholder questions into measurable requirements, defines t
 
 The design identifies Date, Product, and Store as shared dimensions for Sales, Returns, and future Inventory. Customer and Promotion are shared by Sales and Returns. Returns inherit the original sale's promotion where that relationship is available. Inventory metrics remain deferred until suitable source data is provided.
 
+## Phase 3: Architecture and data dictionary
+
+Phase 3 describes the proposed flow from the NorthStar OLTP source through staging and ETL to a dimensional warehouse and Power BI. It also documents conceptual fact and dimension fields, source mappings, and the Kimball design rationale.
+
+- [Phase 3 overview and architecture diagram](phase03-architecture/README.md)
+- [Conceptual data dictionary](phase03-architecture/data-dictionary.md)
+- [Source-to-target mapping and implementation notes](phase03-architecture/source-to-target.md)
+- [Architecture and design rationale](phase03-architecture/architecture.md)
+
+The Phase 3 documents describe a **design**, not evidence that every pipeline, table, or dashboard has been implemented. `DimReturnReason` is introduced for returns, while sales channel remains an attribute of `DimStore`.
+
 ## Repository map
 
 ```text
@@ -57,13 +68,15 @@ The design identifies Date, Product, and Store as shared dimensions for Sales, R
 ├── business-questions-sql/       # Source-system analysis queries
 ├── docs/                         # Project roadmap and overview assets
 ├── phase01-source-analysis/      # Source analysis and validation evidence
-└── phase 02-dimentional model/   # Requirements, KPIs, grain, dimensions, bus matrix
+├── phase 02-dimentional model/   # Requirements, KPIs, grain, dimensions, bus matrix
+└── phase03-architecture/         # Architecture and conceptual data dictionary
 ```
 
 ## Technology and methods
 
 - **Source analysis:** DuckDB and SQL
 - **Warehouse implementation:** Snowflake
+- **Proposed ETL:** Python
 - **Dimensional modeling:** Kimball bus matrix, conformed dimensions, and declared grain
 - **Planned reporting:** Power BI
 
