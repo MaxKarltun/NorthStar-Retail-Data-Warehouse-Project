@@ -18,6 +18,8 @@ A dimensional data-warehouse project for NorthStar Retail, following the Kimball
 
 This repository documents the design and development of a NorthStar Retail data warehouse. It starts with source-system analysis and stakeholder requirements, then defines dimensional models and supports warehouse implementation, data-quality validation, and business analysis.
 
+![Proposed NorthStar data warehouse architecture](phase03-architecture/architecture.svg)
+
 The project is organized into phases. The Phase 2 requirements and Kimball bus matrix describe both current analytical processes and future scope. **Sales and Returns are in scope; Inventory is modeled as a future process because inventory and reorder source data are not available in the provided project data.**
 
 ## Project roadmap
@@ -75,6 +77,8 @@ The Phase 3 documents describe a **design**, not evidence that every pipeline, t
 ## Phase 4: Star schema, ETL, and data quality
 
 Phase 4 implements the NorthStar Retail sales star schema in Snowflake. The Lab 4 resubmission reports five dimensions (`DIM_DATE`, `DIM_CUSTOMER`, `DIM_PRODUCT`, `DIM_STORE`, and `DIM_PROMOTION`) and `FACT_SALES` at one row per order line. The sales ETL resolves dimension surrogate keys, assigns unmatched promotions to a default member, and calculates extended sales, cost, and margin. Customer history is preserved with SCD Type 2, and the reported data-quality checks reconcile the loaded fact table to its source.
+
+![Implemented NorthStar sales star schema](phase04-star-schema-etl/star-schema.svg)
 
 - [Phase 4 overview and star-schema diagram](phase04-star-schema-etl/README.md)
 - [Implemented schema and grain](phase04-star-schema-etl/implementation.md)
