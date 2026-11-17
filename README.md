@@ -65,7 +65,7 @@ The design identifies Date, Product, and Store as shared dimensions for Sales, R
 
 ## Phase 3: Architecture and data dictionary
 
-Phase 3 describes the proposed flow from the NorthStar OLTP source through staging and ETL to a dimensional warehouse and Power BI. It also documents conceptual fact and dimension fields, source mappings, and the Kimball design rationale.
+Phase 3 describes the proposed flow from the NorthStar OLTP source through staging and SQL-based ETL to a dimensional warehouse and Power BI. It also documents conceptual fact and dimension fields, source mappings, and the Kimball design rationale. The ETL can be implemented in SQL without Python.
 
 - [Phase 3 overview and architecture diagram](phase03-architecture/README.md)
 - [Conceptual data dictionary](phase03-architecture/data-dictionary.md)
@@ -104,7 +104,7 @@ Phase 4 implements the NorthStar Retail sales star schema in Snowflake. The Lab 
 
 - **Source analysis:** DuckDB and SQL
 - **Warehouse implementation:** Snowflake
-- **Proposed ETL:** Python
+- **Proposed ETL:** SQL-based transformations and loads; Python is not required
 - **Dimensional modeling:** Kimball bus matrix, conformed dimensions, and declared grain
 - **Planned reporting:** Power BI
 

@@ -8,11 +8,11 @@
 | --- | --- |
 | NorthStar OLTP | Operational source of sales, customers, products, stores, promotions, and returns |
 | Staging | DuckDB or Snowflake staging area for preparing source data |
-| ETL | Python-based extraction, transformation, and loading into the dimensional model |
+| ETL | SQL-based extraction, transformation, and loading into the dimensional model; Python is not required |
 | Data warehouse | Kimball-style Sales and Returns facts linked to descriptive dimensions |
 | Presentation | Power BI reports and dashboards for KPIs and historical analysis |
 
-These are design layers, not a deployment or operational runbook. Lab 3 does not provide an ETL script, detailed schedule, deployment configuration, or evidence that all layers are running.
+These are design layers, not a deployment or operational runbook. Lab 3 does not provide SQL ETL scripts, a detailed schedule, deployment configuration, or evidence that all layers are running.
 
 ## Dimensional design
 

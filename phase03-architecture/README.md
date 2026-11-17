@@ -1,10 +1,10 @@
 # Phase 3 — Architecture and Data Dictionary
 
-Phase 3 translates the Phase 2 requirements into a proposed warehouse architecture and conceptual data dictionary. The design describes how operational data can move through staging and ETL into business-friendly dimensional tables for reporting.
+Phase 3 translates the Phase 2 requirements into a proposed warehouse architecture and conceptual data dictionary. The design describes how operational data can move through staging and SQL-based ETL into business-friendly dimensional tables for reporting.
 
 ![NorthStar proposed data warehouse architecture](architecture.svg)
 
-**Figure 1.** Proposed flow from NorthStar operational data to Power BI reporting.
+**Figure 1.** Proposed flow from NorthStar operational data to Power BI reporting, using SQL-based ETL without requiring Python.
 
 ## Deliverables
 
@@ -20,4 +20,4 @@ Phase 3 translates the Phase 2 requirements into a proposed warehouse architectu
 
 The Lab 3 design includes Sales and Returns facts, customer, product, store, date, promotion, and return-reason dimensions. `DimReturnReason` supports return analysis; channel remains an attribute of `DimStore`. Inventory remains future scope because inventory and reorder source data are not available in the provided project data.
 
-This phase documents the **proposed** architecture and logical mappings. References to Python ETL, staging, Snowflake, and Power BI describe the planned flow and do not establish that a specific pipeline, returns model, or dashboard is already deployed. Field names and types are conceptual, not a guarantee of the physical Snowflake schema.
+This phase documents the **proposed** architecture and logical mappings. The ETL can be implemented with SQL; Python is not required. References to staging, Snowflake, and Power BI describe the planned flow and do not establish that a specific pipeline, returns model, or dashboard is already deployed. Field names and types are conceptual, not a guarantee of the physical Snowflake schema.

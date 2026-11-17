@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="610" viewBox="0 0 1600 610" role="img" aria-labelledby="title desc">
   <title id="title">NorthStar Retail proposed data warehouse architecture</title>
-  <desc id="desc">Data moves from the NorthStar OLTP database through DuckDB or Snowflake staging, a Python ETL process, and a Kimball dimensional warehouse to Power BI reports and dashboards.</desc>
+  <desc id="desc">Data moves from the NorthStar OLTP database through DuckDB or Snowflake staging, SQL-based ETL, and a Kimball dimensional warehouse to Power BI reports and dashboards.</desc>
   <rect width="1600" height="610" rx="26" fill="#f3f6fb"/>
   <text x="65" y="75" fill="#18324b" font-family="Arial, sans-serif" font-size="40" font-weight="700">NorthStar Retail | Proposed Warehouse Architecture</text>
   <text x="68" y="118" fill="#5e7185" font-family="Arial, sans-serif" font-size="22">Lab 3: operational data to dimensional reporting</text>
@@ -22,7 +22,7 @@
     <text x="492" y="324" fill="#526477" font-size="19">Prepare source data</text>
     <rect x="665" y="205" width="255" height="180" rx="20" fill="#fff4dc" stroke="#c68a1b" stroke-width="3"/>
     <text x="792" y="246" fill="#a96e0d" font-size="17" font-weight="700">03 · ETL</text>
-    <text x="792" y="290" fill="#18324b" font-size="25" font-weight="700">Python process</text>
+    <text x="792" y="290" fill="#18324b" font-size="25" font-weight="700">SQL-based ETL</text>
     <text x="792" y="324" fill="#526477" font-size="19">Extract · transform · load</text>
     <rect x="965" y="205" width="255" height="180" rx="20" fill="#eaf2fe" stroke="#3478c8" stroke-width="3"/>
     <text x="1092" y="246" fill="#3478c8" font-size="17" font-weight="700">04 · WAREHOUSE</text>
