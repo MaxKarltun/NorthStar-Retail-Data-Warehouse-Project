@@ -106,6 +106,6 @@ Phase 4 implements the NorthStar Retail sales star schema in Snowflake. The Lab 
 
 ## Author
 
-Maximiliano Karltun Moreno
+Max Karltun 
 
 Master of Science in Data Engineering & Analytics
