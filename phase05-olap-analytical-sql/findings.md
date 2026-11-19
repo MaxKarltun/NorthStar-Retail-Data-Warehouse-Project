@@ -22,4 +22,8 @@ RFM uses January 1, 2025 as the reference date and groups by `CUSTOMER_ID` to co
 
 The submission reports 2,999 customers in four segments. The 912 Champions generated 53.50% of revenue; 584 at-risk valuable customers contributed 22.81%. Loyalty benefits and targeted reactivation campaigns are potential next steps, but these segments describe relative behavior in the dataset, not confirmed churn or predictions.
 
+![Snowflake RFM customer segmentation results](figures/figure-8-rfm-segments.png)
+
+**Figure 8.** Snowflake output for the RFM customer segmentation query.
+
 `NTILE(4)` scores customers relative to one another; more recent purchases receive higher recency scores. `CUSTOMER_ID` makes ordering reproducible, but equal values can be split across quartiles, so the scores are not fixed business thresholds.
