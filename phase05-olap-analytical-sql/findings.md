@@ -16,6 +16,10 @@ February 2023 revenue decreased 0.89% from January, and March increased 34.95% f
 
 The standard monthly view groups by year, quarter, and month. Its reported 24 rows reconcile to 119,352 sales lines, $67,010,688.58 in revenue, 185,926 units, and $32,474,563.78 in margin. It provides consistent reporting logic, but does not store precomputed results; use the fact table when transaction-level detail is required.
 
+![Snowflake monthly aggregate view reconciliation](figures/figure-6-monthly-view-reconciliation.png)
+
+**Figure 6.** Snowflake output showing the monthly aggregate view reconciled to the sales baseline.
+
 ## Customer RFM
 
 RFM uses January 1, 2025 as the reference date and groups by `CUSTOMER_ID` to combine purchases across SCD Type 2 versions. Frequency counts distinct orders and monetary value sums order-line revenue. The analysis includes customers with sales in the fact table, not customers without purchases.

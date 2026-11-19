@@ -8,6 +8,7 @@ Phase 5 analyzes the [Lab 4 sales star schema](../phase04-star-schema-etl/README
 | --- | --- |
 | [SQL portfolio](portfolio.sql) | Baseline, OLAP, window, monthly view, validation, and RFM queries |
 | [Analytical findings](findings.md) | Reported results, business interpretation, and method limitations |
+| [Figure 6 — monthly view reconciliation](figures/figure-6-monthly-view-reconciliation.png) | Snowflake validation screenshot |
 | [Figure 8 — RFM segmentation results](figures/figure-8-rfm-segments.png) | Snowflake result screenshot |
 
 ## Reported baseline and reconciliation
@@ -23,6 +24,12 @@ Phase 5 analyzes the [Lab 4 sales star schema](../phase04-star-schema-etl/README
 | Monthly view rows | 24 |
 
 The monthly view's reported sums for sales lines, revenue, units, and margin reconcile to the fact-table baseline. Because the fact grain is one order line, the baseline and RFM queries count distinct `ORDER_ID` values rather than fact rows as orders.
+
+## Figure 6 — Monthly aggregate view reconciliation
+
+![Snowflake monthly aggregate view reconciliation](figures/figure-6-monthly-view-reconciliation.png)
+
+**Figure 6.** Monthly aggregate view totals reconciled to the sales baseline.
 
 ## Figure 8 — RFM customer segmentation
 
