@@ -14,6 +14,10 @@ For 2024 physical-store sales in the Northeast and Southeast, the submission rep
 
 February 2023 revenue decreased 0.89% from January, and March increased 34.95% from February. The query compares each observed month with the previous observed month, including across year boundaries, while the year-to-date running total resets each year. It does not generate rows for months without sales.
 
+![Snowflake monthly revenue growth and year-to-date results](figures/figure-4-monthly-growth-ytd.png)
+
+**Figure 4.** Snowflake output for monthly revenue, month-over-month growth, and year-to-date revenue.
+
 The standard monthly view groups by year, quarter, and month. Its reported 24 rows reconcile to 119,352 sales lines, $67,010,688.58 in revenue, 185,926 units, and $32,474,563.78 in margin. It provides consistent reporting logic, but does not store precomputed results; use the fact table when transaction-level detail is required.
 
 ![Snowflake monthly aggregate view reconciliation](figures/figure-6-monthly-view-reconciliation.png)

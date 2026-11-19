@@ -8,6 +8,7 @@ Phase 5 analyzes the [Lab 4 sales star schema](../phase04-star-schema-etl/README
 | --- | --- |
 | [SQL portfolio](portfolio.sql) | Baseline, OLAP, window, monthly view, validation, and RFM queries |
 | [Analytical findings](findings.md) | Reported results, business interpretation, and method limitations |
+| [Figure 4 — monthly growth and YTD revenue](figures/figure-4-monthly-growth-ytd.png) | Snowflake window-function screenshot |
 | [Figure 6 — monthly view reconciliation](figures/figure-6-monthly-view-reconciliation.png) | Snowflake validation screenshot |
 | [Figure 8 — RFM segmentation results](figures/figure-8-rfm-segments.png) | Snowflake result screenshot |
 
@@ -41,7 +42,13 @@ The monthly view's reported sums for sales lines, revenue, units, and margin rec
 
 The queries target `MMIS642.PUBLIC` and the physical table and column names reported in Lab 4. Run them in Snowflake with access to the loaded warehouse; adapt the database and schema qualifiers if necessary. Run the `CREATE VIEW` statement before its validation and reporting queries. It creates `VW_LAB5_MONTHLY_SALES` and requires permission to create a view; it will fail if the view already exists. The view is a standard view that stores a SQL definition, not precomputed results or a guarantee of faster queries.
 
-These are results reported in the Lab 5 submission. The repository does not contain the Snowflake data or execution logs, and the queries and results have not been independently rerun here. The submitted figures were not provided for this phase.
+These are results reported in the Lab 5 submission. The repository does not contain the Snowflake data or execution logs, and the queries and results have not been independently rerun here. Selected Snowflake result screenshots are included with the documentation as submission evidence.
+
+## Figure 4 — Monthly growth and year-to-date revenue
+
+![Snowflake monthly revenue growth and year-to-date results](figures/figure-4-monthly-growth-ytd.png)
+
+**Figure 4.** Monthly revenue, month-over-month growth, and year-to-date revenue.
 
 ## References
 
