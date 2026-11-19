@@ -6,6 +6,14 @@ The figures below are reported in the Lab 5 submission for NorthStar's 2023–20
 
 The time roll-up reports $5,860,485.08 in Q1 2023 revenue and $7,375,038.65 in Q2. Drilling into Q1 shows January at $1,760,636.79, February at $1,745,007.03, and March at $2,354,841.26. Quarterly and monthly detail exposes changes hidden in an annual total; category and regional analysis could help explain them.
 
+![Snowflake sales roll-up by year, quarter, and month](figures/figure-2-sales-rollup.png)
+
+**Figure 2.** Snowflake output for the year, quarter, and month roll-up.
+
+![Snowflake Q1 2023 monthly drill-down](figures/figure-2a-q1-drilldown.png)
+
+**Figure 2A.** Snowflake output for the Q1 2023 monthly drill-down.
+
 ## Category and region slice
 
 For 2024 physical-store sales in the Northeast and Southeast, the submission reports 20 category–region combinations. Apparel led revenue in both regions ($1,098,817.21 and $1,093,260.81 respectively), while Beauty & Health had margin percentages of 67.94% and 67.87%. Revenue leadership and margin percentage are different measures; the reported results suggest maintaining Apparel availability while testing margin-conscious Beauty & Health promotions.
