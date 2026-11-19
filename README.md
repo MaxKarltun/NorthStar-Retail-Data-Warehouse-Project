@@ -30,7 +30,7 @@ The project is organized into phases. The Phase 2 requirements and Kimball bus m
 | 2 | Business requirements, KPIs, declared grain, and Kimball bus matrix | Complete |
 | 3 | Warehouse architecture and conceptual data dictionary | Complete |
 | 4 | Star schema, ETL, SCD Type 2, and data quality | Complete |
-| 5 | OLAP and analytical SQL portfolio | Planned |
+| 5 | OLAP and analytical SQL portfolio | Complete |
 | 6 | Physical design and optimization | Planned |
 | 7 | Power BI semantic model | Planned |
 | 8 | Executive dashboard and capstone | Planned |
@@ -88,6 +88,16 @@ Phase 4 implements the NorthStar Retail sales star schema in Snowflake. The Lab 
 
 **Implementation scope:** Lab 4 documents the sales fact and its five dimensions. Returns is part of the earlier conceptual design, but a `FACT_RETURNS` load is not reported as implemented in Lab 4. Inventory remains future scope because inventory source data is unavailable.
 
+## Phase 5: OLAP and analytical SQL
+
+Phase 5 analyzes the sales star schema using Snowflake SQL: time-based roll-up and drill-down, category and region slice-and-dice, month-over-month growth and year-to-date revenue, and customer RFM segmentation. A reusable monthly sales view reconciles to the reported fact-table baseline of 119,352 sales lines and $67,010,688.58 in revenue.
+
+- [Phase 5 overview and reported results](phase05-olap-analytical-sql/README.md)
+- [Analytical findings and interpretation](phase05-olap-analytical-sql/findings.md)
+- [Snowflake SQL query portfolio](phase05-olap-analytical-sql/portfolio.sql)
+
+The results are reported in the Lab 5 submission; they have not been independently rerun in this repository. The monthly view is a standard view, not a materialized summary, and the RFM segments describe relative behavior rather than confirmed churn.
+
 ## Repository map
 
 ```text
@@ -97,7 +107,8 @@ Phase 4 implements the NorthStar Retail sales star schema in Snowflake. The Lab 
 ├── phase01-source-analysis/      # Source analysis and validation evidence
 ├── phase 02-dimentional model/   # Requirements, KPIs, grain, dimensions, bus matrix
 ├── phase03-architecture/         # Architecture and conceptual data dictionary
-└── phase04-star-schema-etl/      # Implemented sales schema, ETL, SCD2, validation
+├── phase04-star-schema-etl/      # Implemented sales schema, ETL, SCD2, validation
+└── phase05-olap-analytical-sql/  # OLAP queries, monthly view, RFM analysis
 ```
 
 ## Technology and methods
